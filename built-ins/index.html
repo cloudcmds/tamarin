@@ -1,0 +1,1145 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../syntax/">
+      
+      
+        <link rel="next" href="../data-types/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
+    
+    
+      
+        <title>Built-in Functions - Tamarin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6b71719e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#built-in-functions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tamarin" class="md-header__button md-logo" aria-label="Tamarin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tamarin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Built-in Functions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cloudcmds/tamarin" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tamarin" class="md-nav__button md-logo" aria-label="Tamarin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Tamarin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cloudcmds/tamarin" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../syntax/" class="md-nav__link">
+        Syntax
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Built-in Functions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Built-in Functions
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#allcontainer" class="md-nav__link">
+    all(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anycontainer" class="md-nav__link">
+    any(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assertx-message" class="md-nav__link">
+    assert(x, message)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boolobject" class="md-nav__link">
+    bool(object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callfunction-any" class="md-nav__link">
+    call(function, ...any)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chrint" class="md-nav__link">
+    chr(int)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletemap-key" class="md-nav__link">
+    delete(map, key)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errmessage" class="md-nav__link">
+    err(message)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errormessage" class="md-nav__link">
+    error(message)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floatobject" class="md-nav__link">
+    float(object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getattrobject-name-default" class="md-nav__link">
+    getattr(object, name, default)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intobject" class="md-nav__link">
+    int(object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#itercontainer" class="md-nav__link">
+    iter(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyscontainer" class="md-nav__link">
+    keys(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lencontainer" class="md-nav__link">
+    len(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listcontainer" class="md-nav__link">
+    list(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#okobject" class="md-nav__link">
+    ok(object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ordstring" class="md-nav__link">
+    ord(string)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#printany" class="md-nav__link">
+    print(...any)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#printfstring-any" class="md-nav__link">
+    printf(string, ...any)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reversedlist" class="md-nav__link">
+    reversed(list)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setcontainer" class="md-nav__link">
+    set(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sortedcontainer" class="md-nav__link">
+    sorted(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sprintfstring-any" class="md-nav__link">
+    sprintf(string, ...any)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stringobject" class="md-nav__link">
+    string(object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tryexpression-fallback" class="md-nav__link">
+    try(expression, fallback)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typeobject" class="md-nav__link">
+    type(object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unwrap_orresult-fallback" class="md-nav__link">
+    unwrap_or(result, fallback)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unwrapresult" class="md-nav__link">
+    unwrap(result)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-types/" class="md-nav__link">
+        Data Types
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iterators/" class="md-nav__link">
+        Iterators
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../error-handling/" class="md-nav__link">
+        Error Handling
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-it-works/" class="md-nav__link">
+        How It Works
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#allcontainer" class="md-nav__link">
+    all(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anycontainer" class="md-nav__link">
+    any(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assertx-message" class="md-nav__link">
+    assert(x, message)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boolobject" class="md-nav__link">
+    bool(object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callfunction-any" class="md-nav__link">
+    call(function, ...any)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chrint" class="md-nav__link">
+    chr(int)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletemap-key" class="md-nav__link">
+    delete(map, key)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errmessage" class="md-nav__link">
+    err(message)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errormessage" class="md-nav__link">
+    error(message)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#floatobject" class="md-nav__link">
+    float(object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getattrobject-name-default" class="md-nav__link">
+    getattr(object, name, default)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intobject" class="md-nav__link">
+    int(object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#itercontainer" class="md-nav__link">
+    iter(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keyscontainer" class="md-nav__link">
+    keys(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lencontainer" class="md-nav__link">
+    len(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#listcontainer" class="md-nav__link">
+    list(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#okobject" class="md-nav__link">
+    ok(object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ordstring" class="md-nav__link">
+    ord(string)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#printany" class="md-nav__link">
+    print(...any)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#printfstring-any" class="md-nav__link">
+    printf(string, ...any)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reversedlist" class="md-nav__link">
+    reversed(list)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setcontainer" class="md-nav__link">
+    set(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sortedcontainer" class="md-nav__link">
+    sorted(container)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sprintfstring-any" class="md-nav__link">
+    sprintf(string, ...any)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stringobject" class="md-nav__link">
+    string(object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tryexpression-fallback" class="md-nav__link">
+    try(expression, fallback)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#typeobject" class="md-nav__link">
+    type(object)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unwrap_orresult-fallback" class="md-nav__link">
+    unwrap_or(result, fallback)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unwrapresult" class="md-nav__link">
+    unwrap(result)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="built-in-functions">Built-in Functions</h1>
+<p>Tamarin includes this set of default built-in functions. The set of available
+built-ins is easily customizable, depending on the goals for your project.</p>
+<h3 id="allcontainer">all(container)</h3>
+<p>Returns <code>true</code> if all entries in the given container are "truthy".</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">all</span><span class="p">([</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ok&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kc">true</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">all</span><span class="p">([</span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ok&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kc">false</span>
+</code></pre></div>
+<h3 id="anycontainer">any(container)</h3>
+<p>Returns <code>true</code> if any of the entries in the given container are "truthy".</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">any</span><span class="p">([</span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ok&quot;</span><span class="p">])</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kc">true</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">any</span><span class="p">([</span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">])</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kc">false</span>
+</code></pre></div>
+<h3 id="assertx-message">assert(x, message)</h3>
+<p>Generates an error if <code>x</code> is "falsy". If a message is provided, it is used as
+the assertion error message.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">assert</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;check failed&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">assert</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;check failed&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nx">check</span><span class="w"> </span><span class="nx">failed</span>
+</code></pre></div>
+<h3 id="boolobject">bool(object)</h3>
+<p>Returns <code>true</code> or <code>false</code> depending on whether the object is considered "truthy".
+Container types including lists, maps, sets, and strings evaluate to <code>false</code> when
+empty and <code>true</code> otherwise.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kc">true</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kc">false</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">bool</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kc">true</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">bool</span><span class="p">([])</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kc">false</span>
+</code></pre></div>
+<h3 id="callfunction-any">call(function, ...any)</h3>
+<p>Calls the function with given arguments. This is primarily useful in pipe
+expressions when a function is being passed through the pipe as a variable.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">func</span><span class="w"> </span><span class="nx">inc</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">call</span><span class="p">(</span><span class="nx">inc</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="mi">100</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">inc</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">call</span><span class="p">(</span><span class="mi">41</span><span class="p">)</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="mi">42</span>
+</code></pre></div>
+<h3 id="chrint">chr(int)</h3>
+<p>Converts an Int to the corresponding unicode rune, which is returned as a String.
+The <code>ord</code> built-in performs the inverse transformation.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">chr</span><span class="p">(</span><span class="mi">8364</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="s">&quot;€&quot;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">chr</span><span class="p">(</span><span class="mi">97</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s">&quot;a&quot;</span>
+</code></pre></div>
+<h3 id="deletemap-key">delete(map, key)</h3>
+<p>Deletes the item with the specified key from the map. This operation has no
+effect if the key is not present in the map.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">{</span><span class="nx">one</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">two</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span><span class="s">&quot;one&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">delete</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;one&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">{</span><span class="s">&quot;two&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">delete</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">{</span><span class="s">&quot;two&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="errmessage">err(message)</h3>
+<p>Returns a new Result object containing the given error message. Results may
+contain an <code>ok</code> value or an <code>err</code> value, and this built-in is used to construct
+the latter. This is similar in some ways to <a href="https://doc.rust-lang.org/std/result/">Rust's result type</a>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">err</span><span class="p">(</span><span class="s">&quot;failed operation&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nx">err</span><span class="p">(</span><span class="s">&quot;failed operation&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="errormessage">error(message)</h3>
+<p>Generates an Error containing the given message. Errors in Tamarin stop evaluation
+when they are generated, unless a <code>try</code> call is used to stop error propagation.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">error</span><span class="p">(</span><span class="s">&quot;kaboom&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nx">kaboom</span>
+</code></pre></div>
+<h3 id="floatobject">float(object)</h3>
+<p>Converts a String or Int object to a Float. An error is generated if the
+operation fails.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">float</span><span class="p">(</span><span class="s">&quot;4.4&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="mf">4.4</span>
+</code></pre></div>
+<h3 id="getattrobject-name-default">getattr(object, name, default)</h3>
+<p>Returns the named attribute from the object, or the default value if the
+attribute does not exist. The returned attribute is always a Tamarin object,
+which may be a function. This is similar to
+<a href="https://docs.python.org/3/library/functions.html#getattr">getattr</a> in Python.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">append</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">getattr</span><span class="p">(</span><span class="nx">l</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;append&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nx">builtin</span><span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">append</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">]</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">getattr</span><span class="p">(</span><span class="nx">l</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;unknown&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;that doesn&#39;t exist&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="s">&quot;that doesn&#39;t exist&quot;</span>
+</code></pre></div>
+<h3 id="intobject">int(object)</h3>
+<p>Converts a String or Float to an Int. An error is generated if the operation
+fails.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mf">4.4</span><span class="p">)</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="mi">4</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="mi">123</span>
+</code></pre></div>
+<h3 id="itercontainer">iter(container)</h3>
+<p>Returns an iterator for the given container object. This can be used to iterate
+through items in a for loop or interacted with more directly. The returned
+iterator has a <code>next()</code> method that will return <code>iter_entry</code> objects.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">}</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">}</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">iterator</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">iter</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nx">set_iter</span><span class="p">({</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">})</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">iterator</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">key</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="s">&quot;a&quot;</span>
+</code></pre></div>
+<h3 id="keyscontainer">keys(container)</h3>
+<p>Returns a list of all keys for items in the given map or list container.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">{</span><span class="nx">one</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">two</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="p">{</span><span class="s">&quot;one&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">keys</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="lencontainer">len(container)</h3>
+<p>Returns the size of the string, list, map, or set.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="s">&quot;ab&quot;</span><span class="p">)</span><span class="w">        </span><span class="c1">// string length</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="mi">2</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="w">     </span><span class="c1">// list length</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="mi">3</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">len</span><span class="p">({</span><span class="nx">foo</span><span class="p">:</span><span class="s">&quot;bar&quot;</span><span class="p">})</span><span class="w"> </span><span class="c1">// map length</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="mi">1</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">len</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">})</span><span class="w">   </span><span class="c1">// set length</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="mi">4</span>
+</code></pre></div>
+<h3 id="listcontainer">list(container)</h3>
+<p>Returns a new list populated with items from the given container. If a list is
+provided, a shallow copy of the list is returned. It is also commonly used to
+convert a set to a list.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">}</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">}</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">list</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="okobject">ok(object)</h3>
+<p>Returns a new Result containing the given ok value. Results may contain an <code>ok</code>
+value or an <code>err</code> value, and this built-in is used to construct the former. This
+is similar in some ways to <a href="https://doc.rust-lang.org/std/result/">Rust's result type</a>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">ok</span><span class="p">(</span><span class="s">&quot;that worked&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nx">ok</span><span class="p">(</span><span class="s">&quot;that worked&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">is_ok</span><span class="p">()</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="kc">true</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">unwrap</span><span class="p">()</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="s">&quot;that worked&quot;</span>
+</code></pre></div>
+<h3 id="ordstring">ord(string)</h3>
+<p>Converts a unicode character to the corresponding Int value. The <code>chr</code> built-in
+performs the inverse transformation. An error is generated if a multi-rune string is
+provided.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">ord</span><span class="p">(</span><span class="s">&quot;€&quot;</span><span class="p">)</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="mi">8364</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">ord</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="mi">97</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">chr</span><span class="p">(</span><span class="nx">ord</span><span class="p">(</span><span class="s">&quot;€&quot;</span><span class="p">))</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="s">&quot;€&quot;</span>
+</code></pre></div>
+<h3 id="printany">print(...any)</h3>
+<p>Prints the provided objects to stdout after converting them to their String
+representations. Spaces are inserted between each object and a trailing newline
+is output. This is a wrapper around <code>fmt.Println</code> in Go.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">print</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;is the answer&quot;</span><span class="p">)</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="mi">42</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">answer</span>
+</code></pre></div>
+<h3 id="printfstring-any">printf(string, ...any)</h3>
+<p>Printf wraps <code>fmt.Printf</code> in order to print the formatted string and arguments
+to stdout. In the Tamarin REPL you will currently not see the <code>printf</code> output
+unless the string ends in a newline character.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">printf</span><span class="p">(</span><span class="s">&quot;name: %s age: %d\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;joe&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">)</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nx">name</span><span class="p">:</span><span class="w"> </span><span class="nx">joe</span><span class="w"> </span><span class="nx">age</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span>
+</code></pre></div>
+<h3 id="reversedlist">reversed(list)</h3>
+<p>Returns a new list which is a reversed copy of the provided list.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">]</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">]</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">reversed</span><span class="p">(</span><span class="nx">l</span><span class="p">)</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="p">[</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="p">]</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">l</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="setcontainer">set(container)</h3>
+<p>Returns a new set containing the items from the given container object.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">set</span><span class="p">(</span><span class="s">&quot;aabbcc&quot;</span><span class="p">)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">}</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">set</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">}</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">set</span><span class="p">({</span><span class="nx">one</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">two</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="p">{</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="sortedcontainer">sorted(container)</h3>
+<p>Returns a sorted list of items from the given container object.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">sorted</span><span class="p">(</span><span class="s">&quot;cba&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">]</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">sorted</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span><span class="p">])</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="sprintfstring-any">sprintf(string, ...any)</h3>
+<p>Wraps <code>fmt.Sprintf</code> to format the string with the provided arguments. Tamarin
+objects are converted to their corresponding Go types before being passed to
+<code>fmt.Sprintf</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">sprintf</span><span class="p">(</span><span class="s">&quot;name: %s age: %d&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fred&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">)</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="s">&quot;name: fred age: 18&quot;</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">sprintf</span><span class="p">(</span><span class="s">&quot;%v&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">3.3</span><span class="p">])</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="s">&quot;[1 a 3.3]&quot;</span>
+</code></pre></div>
+<h3 id="stringobject">string(object)</h3>
+<p>Returns a string representation of the given Tamarin object.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">string</span><span class="p">({</span><span class="nx">one</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">two</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="s">&quot;{\&quot;one\&quot;: 1, \&quot;two\&quot;: 2}&quot;</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">string</span><span class="p">(</span><span class="mf">4.4</span><span class="p">)</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="s">&quot;4.4&quot;</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">string</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="s">&quot;[1, 2, 3]&quot;</span>
+</code></pre></div>
+<h3 id="tryexpression-fallback">try(expression, fallback)</h3>
+<p>Evaluates the expression and return the fallback value if an error occurs. This
+works equally well with Error objects and Results containing an error value.</p>
+<p>If a function is provided as the fallback value, that function is called when
+an error occurs with the error message as the first argument. The value returned
+from the function is used as the return value from the <code>try</code> call.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">try</span><span class="p">(</span><span class="s">&quot;ok&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;fallback&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="s">&quot;ok&quot;</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">try</span><span class="p">(</span><span class="nb">error</span><span class="p">(</span><span class="s">&quot;boom&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;that failed&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="s">&quot;that failed&quot;</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">try</span><span class="p">(</span><span class="nb">error</span><span class="p">(</span><span class="s">&quot;boom&quot;</span><span class="p">),</span><span class="w"> </span><span class="nb">error</span><span class="p">(</span><span class="s">&quot;transformed err&quot;</span><span class="p">))</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="nx">transformed</span><span class="w"> </span><span class="nx">err</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">err</span><span class="p">(</span><span class="s">&quot;err result&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="nx">err</span><span class="p">(</span><span class="s">&quot;err result&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">try</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;the result contained an error&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="s">&quot;the result contained an error&quot;</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">try</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">failure</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nx">msg</span><span class="p">}</span><span class="err">&#39;</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="s">&quot;failure: err result&quot;</span>
+</code></pre></div>
+<h3 id="typeobject">type(object)</h3>
+<p>Returns the type name of the given object as a String.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="s">&quot;int&quot;</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">type</span><span class="p">(</span><span class="mf">2.2</span><span class="p">)</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="s">&quot;float&quot;</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">type</span><span class="p">(</span><span class="s">&quot;hi&quot;</span><span class="p">)</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="s">&quot;string&quot;</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">type</span><span class="p">([])</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="s">&quot;list&quot;</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">type</span><span class="p">({})</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="s">&quot;map&quot;</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">type</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">})</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="s">&quot;set&quot;</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">type</span><span class="p">(</span><span class="nx">ok</span><span class="p">(</span><span class="s">&quot;success&quot;</span><span class="p">))</span>
+<a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="s">&quot;result&quot;</span>
+<a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">type</span><span class="p">(</span><span class="nx">err</span><span class="p">(</span><span class="s">&quot;failed&quot;</span><span class="p">))</span>
+<a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a><span class="s">&quot;result&quot;</span>
+</code></pre></div>
+<h3 id="unwrap_orresult-fallback">unwrap_or(result, fallback)</h3>
+<p>Returns the wrapped "ok" value from the given Result object or the fallback
+value if the Result contains an Error.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">unwrap_or</span><span class="p">(</span><span class="nx">ok</span><span class="p">(</span><span class="s">&quot;success&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;fallback&quot;</span><span class="p">)</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="s">&quot;success&quot;</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">unwrap_or</span><span class="p">(</span><span class="nx">err</span><span class="p">(</span><span class="s">&quot;boom&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;fallback&quot;</span><span class="p">)</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="s">&quot;fallback&quot;</span>
+</code></pre></div>
+<h3 id="unwrapresult">unwrap(result)</h3>
+<p>Returns the wrapped "ok" value from the given Result object. If the Result
+contains an Error, an Error is generated instead.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">unwrap</span><span class="p">(</span><span class="nx">ok</span><span class="p">(</span><span class="s">&quot;success&quot;</span><span class="p">))</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="s">&quot;success&quot;</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">unwrap</span><span class="p">(</span><span class="nx">err</span><span class="p">(</span><span class="s">&quot;boom&quot;</span><span class="p">))</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="nx">result</span><span class="w"> </span><span class="kt">error</span><span class="p">:</span><span class="w"> </span><span class="nx">unwrap</span><span class="p">()</span><span class="w"> </span><span class="nx">called</span><span class="w"> </span><span class="nx">on</span><span class="w"> </span><span class="nx">an</span><span class="w"> </span><span class="kt">error</span><span class="p">:</span><span class="w"> </span><span class="nb">error</span><span class="p">(</span><span class="s">&quot;boom&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate"], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2165 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../built-ins/">
+      
+      
+        <link rel="next" href="../iterators/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
+    
+    
+      
+        <title>Data Types - Tamarin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6b71719e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-types" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tamarin" class="md-header__button md-logo" aria-label="Tamarin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tamarin
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Types
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/cloudcmds/tamarin" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tamarin" class="md-nav__button md-logo" aria-label="Tamarin" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Tamarin
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/cloudcmds/tamarin" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../syntax/" class="md-nav__link">
+        Syntax
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../built-ins/" class="md-nav__link">
+        Built-in Functions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Data Types
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Data Types
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    Quick Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerics" class="md-nav__link">
+    Numerics
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#related-built-ins" class="md-nav__link">
+    Related Built-ins
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Built-ins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#floatx" class="md-nav__link">
+    float(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intx" class="md-nav__link">
+    int(x)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bool" class="md-nav__link">
+    Bool
+  </a>
+  
+    <nav class="md-nav" aria-label="Bool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#related-built-ins_1" class="md-nav__link">
+    Related Built-ins
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Built-ins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boolx" class="md-nav__link">
+    bool(x)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String
+  </a>
+  
+    <nav class="md-nav" aria-label="String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quote-types" class="md-nav__link">
+    Quote Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-operations" class="md-nav__link">
+    Container Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-built-ins_2" class="md-nav__link">
+    Related Built-ins
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Built-ins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chrint" class="md-nav__link">
+    chr(int)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordstring" class="md-nav__link">
+    ord(string)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprintfstring-any" class="md-nav__link">
+    sprintf(string, ...any)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringx" class="md-nav__link">
+    string(x)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringcontainss" class="md-nav__link">
+    string.contains(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringhas_prefixs" class="md-nav__link">
+    string.has_prefix(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringhas_suffixs" class="md-nav__link">
+    string.has_suffix(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringcounts" class="md-nav__link">
+    string.count(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringjoinlist" class="md-nav__link">
+    string.join(list)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringsplitseparator" class="md-nav__link">
+    string.split(separator)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringfields" class="md-nav__link">
+    string.fields()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringindexs" class="md-nav__link">
+    string.index(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringlast_indexs" class="md-nav__link">
+    string.last_index(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringreplace_allold-new" class="md-nav__link">
+    string.replace_all(old, new)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringto_lower" class="md-nav__link">
+    string.to_lower()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringto_upper" class="md-nav__link">
+    string.to_upper()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringtrimcutset" class="md-nav__link">
+    string.trim(cutset)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringtrim_prefixprefix" class="md-nav__link">
+    string.trim_prefix(prefix)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringtrim_space" class="md-nav__link">
+    string.trim_space()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringtrim_suffixsuffix" class="md-nav__link">
+    string.trim_suffix(suffix)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    List
+  </a>
+  
+    <nav class="md-nav" aria-label="List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-operations_1" class="md-nav__link">
+    Container Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-built-ins_3" class="md-nav__link">
+    Related Built-ins
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Built-ins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listcontainer" class="md-nav__link">
+    list(container)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listappendx" class="md-nav__link">
+    list.append(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listclear" class="md-nav__link">
+    list.clear()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listcopy" class="md-nav__link">
+    list.copy()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listcountx" class="md-nav__link">
+    list.count(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listextendx" class="md-nav__link">
+    list.extend(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listindexx" class="md-nav__link">
+    list.index(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listinsertindex-x" class="md-nav__link">
+    list.insert(index, x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listpopindex" class="md-nav__link">
+    list.pop(index)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listremovex" class="md-nav__link">
+    list.remove(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listreverse" class="md-nav__link">
+    list.reverse()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listsort" class="md-nav__link">
+    list.sort()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listmapfunc" class="md-nav__link">
+    list.map(func)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listfilterfunc" class="md-nav__link">
+    list.filter(func)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listeachfunc" class="md-nav__link">
+    list.each(func)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    Map
+  </a>
+  
+    <nav class="md-nav" aria-label="Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-operations_2" class="md-nav__link">
+    Container Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-built-ins_4" class="md-nav__link">
+    Related Built-ins
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Built-ins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deletemap-key" class="md-nav__link">
+    delete(map, key)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapcontainer" class="md-nav__link">
+    map(container)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_2" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapclear" class="md-nav__link">
+    map.clear()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapcopy" class="md-nav__link">
+    map.copy()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapgetkey-defaultnil" class="md-nav__link">
+    map.get(key, default=nil)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapitems" class="md-nav__link">
+    map.items()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapkeys" class="md-nav__link">
+    map.keys()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mappopkey-defaultnil" class="md-nav__link">
+    map.pop(key, default=nil)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapsetdefaultkey-default" class="md-nav__link">
+    map.setdefault(key, default)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapupdateother" class="md-nav__link">
+    map.update(other)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapvalues" class="md-nav__link">
+    map.values()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    Set
+  </a>
+  
+    <nav class="md-nav" aria-label="Set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-operations_3" class="md-nav__link">
+    Container Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-built-ins_5" class="md-nav__link">
+    Related Built-ins
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Built-ins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deleteset-key" class="md-nav__link">
+    delete(set, key)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcontainer" class="md-nav__link">
+    set(container)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_3" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setaddx" class="md-nav__link">
+    set.add(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setclear" class="md-nav__link">
+    set.clear()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setremovex" class="md-nav__link">
+    set.remove(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setunionother" class="md-nav__link">
+    set.union(other)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setintersectionother" class="md-nav__link">
+    set.intersection(other)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../iterators/" class="md-nav__link">
+        Iterators
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../error-handling/" class="md-nav__link">
+        Error Handling
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-it-works/" class="md-nav__link">
+        How It Works
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    Quick Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerics" class="md-nav__link">
+    Numerics
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#related-built-ins" class="md-nav__link">
+    Related Built-ins
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Built-ins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#floatx" class="md-nav__link">
+    float(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intx" class="md-nav__link">
+    int(x)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bool" class="md-nav__link">
+    Bool
+  </a>
+  
+    <nav class="md-nav" aria-label="Bool">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#related-built-ins_1" class="md-nav__link">
+    Related Built-ins
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Built-ins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boolx" class="md-nav__link">
+    bool(x)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String
+  </a>
+  
+    <nav class="md-nav" aria-label="String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quote-types" class="md-nav__link">
+    Quote Types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-operations" class="md-nav__link">
+    Container Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-built-ins_2" class="md-nav__link">
+    Related Built-ins
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Built-ins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#chrint" class="md-nav__link">
+    chr(int)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordstring" class="md-nav__link">
+    ord(string)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprintfstring-any" class="md-nav__link">
+    sprintf(string, ...any)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringx" class="md-nav__link">
+    string(x)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stringcontainss" class="md-nav__link">
+    string.contains(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringhas_prefixs" class="md-nav__link">
+    string.has_prefix(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringhas_suffixs" class="md-nav__link">
+    string.has_suffix(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringcounts" class="md-nav__link">
+    string.count(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringjoinlist" class="md-nav__link">
+    string.join(list)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringsplitseparator" class="md-nav__link">
+    string.split(separator)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringfields" class="md-nav__link">
+    string.fields()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringindexs" class="md-nav__link">
+    string.index(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringlast_indexs" class="md-nav__link">
+    string.last_index(s)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringreplace_allold-new" class="md-nav__link">
+    string.replace_all(old, new)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringto_lower" class="md-nav__link">
+    string.to_lower()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringto_upper" class="md-nav__link">
+    string.to_upper()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringtrimcutset" class="md-nav__link">
+    string.trim(cutset)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringtrim_prefixprefix" class="md-nav__link">
+    string.trim_prefix(prefix)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringtrim_space" class="md-nav__link">
+    string.trim_space()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stringtrim_suffixsuffix" class="md-nav__link">
+    string.trim_suffix(suffix)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    List
+  </a>
+  
+    <nav class="md-nav" aria-label="List">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-operations_1" class="md-nav__link">
+    Container Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-built-ins_3" class="md-nav__link">
+    Related Built-ins
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Built-ins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listcontainer" class="md-nav__link">
+    list(container)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listappendx" class="md-nav__link">
+    list.append(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listclear" class="md-nav__link">
+    list.clear()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listcopy" class="md-nav__link">
+    list.copy()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listcountx" class="md-nav__link">
+    list.count(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listextendx" class="md-nav__link">
+    list.extend(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listindexx" class="md-nav__link">
+    list.index(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listinsertindex-x" class="md-nav__link">
+    list.insert(index, x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listpopindex" class="md-nav__link">
+    list.pop(index)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listremovex" class="md-nav__link">
+    list.remove(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listreverse" class="md-nav__link">
+    list.reverse()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listsort" class="md-nav__link">
+    list.sort()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listmapfunc" class="md-nav__link">
+    list.map(func)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listfilterfunc" class="md-nav__link">
+    list.filter(func)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listeachfunc" class="md-nav__link">
+    list.each(func)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    Map
+  </a>
+  
+    <nav class="md-nav" aria-label="Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-operations_2" class="md-nav__link">
+    Container Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-built-ins_4" class="md-nav__link">
+    Related Built-ins
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Built-ins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deletemap-key" class="md-nav__link">
+    delete(map, key)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapcontainer" class="md-nav__link">
+    map(container)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_2" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mapclear" class="md-nav__link">
+    map.clear()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapcopy" class="md-nav__link">
+    map.copy()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapgetkey-defaultnil" class="md-nav__link">
+    map.get(key, default=nil)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapitems" class="md-nav__link">
+    map.items()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapkeys" class="md-nav__link">
+    map.keys()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mappopkey-defaultnil" class="md-nav__link">
+    map.pop(key, default=nil)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapsetdefaultkey-default" class="md-nav__link">
+    map.setdefault(key, default)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapupdateother" class="md-nav__link">
+    map.update(other)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapvalues" class="md-nav__link">
+    map.values()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    Set
+  </a>
+  
+    <nav class="md-nav" aria-label="Set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-operations_3" class="md-nav__link">
+    Container Operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#related-built-ins_5" class="md-nav__link">
+    Related Built-ins
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Built-ins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deleteset-key" class="md-nav__link">
+    delete(set, key)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcontainer" class="md-nav__link">
+    set(container)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_3" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setaddx" class="md-nav__link">
+    set.add(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setclear" class="md-nav__link">
+    set.clear()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setremovex" class="md-nav__link">
+    set.remove(x)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setunionother" class="md-nav__link">
+    set.union(other)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setintersectionother" class="md-nav__link">
+    set.intersection(other)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+
+<h1 id="data-types">Data Types</h1>
+<p>Tamarin includes a variety of built-in types. The core types are: int, float,
+bool, error, string, list, map, set, result, function, and time. There are also
+a handful of iterator types, one for each container type.</p>
+<p>Container types may hold a heterogeneous mix of types within. There is not
+currently a way to restrict the types a container may hold.</p>
+<p>Optional type hints like found in Python or Typescript may be a future addition
+to Tamarin.</p>
+<h2 id="quick-reference">Quick Reference</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="mi">101</span><span class="w">         </span><span class="c1">// int</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="mf">1.1</span><span class="w">         </span><span class="c1">// float</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s">&quot;1&quot;</span><span class="w">         </span><span class="c1">// string</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="w">     </span><span class="c1">// list</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span><span class="s">&quot;key&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span><span class="w">   </span><span class="c1">// map</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span><span class="w">       </span><span class="c1">// set</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kc">false</span><span class="w">       </span><span class="c1">// bool</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kc">nil</span><span class="w">         </span><span class="c1">// nil</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w">   </span><span class="c1">// function</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nx">time</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w">  </span><span class="c1">// time</span>
+</code></pre></div>
+<h2 id="numerics">Numerics</h2>
+<p>Int and Float types are the two numeric types in Tamarin. They correspond to
+boxed <code>int64</code> and <code>float64</code> values in Go. Tamarin automatically converts Ints
+to Floats in mixed type operations.</p>
+<p>The standard set of numeric operators are available when working with these types.</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x + y</td>
+<td>sum of x and y</td>
+</tr>
+<tr>
+<td>x - y</td>
+<td>difference of x and y</td>
+</tr>
+<tr>
+<td>x * y</td>
+<td>product of x and y</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>negation of x</td>
+</tr>
+<tr>
+<td>x ** y</td>
+<td>x to the power of y</td>
+</tr>
+<tr>
+<td>x += y</td>
+<td>add y to x</td>
+</tr>
+<tr>
+<td>x -= y</td>
+<td>subtract y from x</td>
+</tr>
+<tr>
+<td>x *= y</td>
+<td>multiply x by y</td>
+</tr>
+<tr>
+<td>x /= y</td>
+<td>divide x by y</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="mi">2</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">3</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="mi">3</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">y</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="mi">6</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="mi">5</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">type</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="s">&quot;int&quot;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">type</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">float</span><span class="p">(</span><span class="nx">y</span><span class="p">))</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="s">&quot;float&quot;</span>
+</code></pre></div>
+<p>Many math functions are also available in the Tamarin <code>math</code> module.</p>
+<h3 id="related-built-ins">Related Built-ins</h3>
+<h4 id="floatx">float(x)</h4>
+<p>Converts a String or Int object to a Float. An error is generated if the
+operation fails.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">float</span><span class="p">(</span><span class="s">&quot;4.4&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="mf">4.4</span>
+</code></pre></div>
+<h4 id="intx">int(x)</h4>
+<p>Converts a String or Float to an Int. An error is generated if the operation
+fails.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="mf">4.4</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="mi">4</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="s">&quot;123&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="mi">123</span>
+</code></pre></div>
+<h2 id="bool">Bool</h2>
+<p>The <code>bool</code> type in Tamarin is a simple wrapper of the Go <code>bool</code> type.</p>
+<p>All underlying object types in Tamarin implement the <code>object.Object</code> interface,
+which includes <code>IsTruthy()</code> and <code>Equals(other)</code> methods. It's good to keep this
+in mind since object "truthiness" can be leveraged in conditional statements.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kc">false</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">bool</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kc">true</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">bool</span><span class="p">([])</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="kc">false</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">bool</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kc">true</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">print</span><span class="p">(</span><span class="s">&quot;5 is truthy&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="mi">5</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">truthy</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">5.0</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="kc">true</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="kc">true</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="kc">false</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="kc">true</span>
+</code></pre></div>
+<h3 id="related-built-ins_1">Related Built-ins</h3>
+<h4 id="boolx">bool(x)</h4>
+<p>Returns <code>true</code> or <code>false</code> according to the given objects "truthiness". Container
+types including lists, maps, sets, and strings evaluate to <code>false</code> when empty
+and <code>true</code> otherwise. Iterators are truthy when there are more items remaining
+to iterate over. Objects of other types are generally always considered to
+be truthy.</p>
+<h2 id="string">String</h2>
+<p>Strings in Tamarin are based on the underlying <code>string</code> type in Go. As such,
+they support unicode and various operations like indexing operate on the
+underlying runes within the string.</p>
+<h3 id="quote-types">Quote Types</h3>
+<p>There are three ways to quote strings in Tamarin source code:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&#39;single quotes: supports interpolated {vars}&#39;
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&quot;double quotes: equivalent to Go strings&quot;
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>`backticks: raw strings that may span multiple lines`
+</code></pre></div>
+<p>The single quoted string approach offers string formatting via interpolation,
+much like <a href="https://peps.python.org/pep-0498/">f-strings</a> in Python. Arbitrary
+Tamarin expressions can be embedded within parentheses and resolved during
+evaluation. In Tamarin, the restriction on these expressions is that they
+cannot contain curly braces, since those are used to mark the beginning and
+end of the template expression.</p>
+<p>An example with simple expressions:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">name</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;jean&quot;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s">&quot;jean&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">age</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">30</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="mi">30</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="err">&#39;</span><span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="p">{</span><span class="nx">age</span><span class="p">}</span><span class="w"> </span><span class="nx">years</span><span class="w"> </span><span class="nx">old</span><span class="err">&#39;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s">&quot;jean is 30 years old&quot;</span>
+</code></pre></div>
+<p>Another example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">nums</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">the</span><span class="w"> </span><span class="nx">max</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="p">{</span><span class="nx">math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">nums</span><span class="p">)}</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">length</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="p">{</span><span class="nb">len</span><span class="p">(</span><span class="nx">nums</span><span class="p">)}</span><span class="err">&#39;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s">&quot;the max is 3 and the length is 4&quot;</span>
+</code></pre></div>
+<h3 id="container-operations">Container Operations</h3>
+<p>Strings in Tamarin implement the <code>object.Container</code> interface, which means they
+support typical container-style operations:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;hello&quot;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="s">&quot;hello&quot;</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="s">&quot;h&quot;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="mi">5</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="s">&quot;el&quot;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="s">&quot;ello&quot;</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="s">&quot;h&quot;</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">iter</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="nx">string_iter</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">iter</span><span class="p">(</span><span class="nx">s</span><span class="p">).</span><span class="nx">next</span><span class="p">()</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="nx">iter_entry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;h&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="related-built-ins_2">Related Built-ins</h3>
+<h4 id="chrint">chr(int)</h4>
+<p>Converts an Int to the corresponding unicode rune, which is returned as a String.
+The <code>ord</code> built-in performs the inverse transformation.</p>
+<h4 id="ordstring">ord(string)</h4>
+<p>Converts a unicode character to the corresponding Int value. The <code>chr</code> built-in
+performs the inverse transformation. An error is generated if a multi-rune string is
+provided.</p>
+<h4 id="sprintfstring-any">sprintf(string, ...any)</h4>
+<p>Wraps <code>fmt.Sprintf</code> to format the string with the provided arguments. Tamarin
+objects are converted to their corresponding Go types before being passed to
+<code>fmt.Sprintf</code>.</p>
+<h4 id="stringx">string(x)</h4>
+<p>Returns the string representation of any Tamarin object.</p>
+<h3 id="methods">Methods</h3>
+<h4 id="stringcontainss">string.contains(s)</h4>
+<p>Returns a bool that indicates if <code>s</code> is a substring of this string.</p>
+<h4 id="stringhas_prefixs">string.has_prefix(s)</h4>
+<p>Checks whether the string begins with the prefix <code>s</code>.</p>
+<h4 id="stringhas_suffixs">string.has_suffix(s)</h4>
+<p>Checks whether the string ends with the suffix <code>s</code>.</p>
+<h4 id="stringcounts">string.count(s)</h4>
+<p>Returns the number of occurrences of <code>s</code> in this string.</p>
+<h4 id="stringjoinlist">string.join(list)</h4>
+<p>Return the joined result of the given list of strings, using this string
+as the separator.</p>
+<h4 id="stringsplitseparator">string.split(separator)</h4>
+<p>Splits this string on all occurrences of the given separator, returning
+the resulting list of strings.</p>
+<h4 id="stringfields">string.fields()</h4>
+<p>Splits this string on whitespace, returning the list of non-whitespace substrings. If this string is only whitespace, an empty list is returned.</p>
+<h4 id="stringindexs">string.index(s)</h4>
+<p>Returns the index of the first occurence of <code>s</code> in this string, or <code>-1</code>
+if <code>s</code> is not present.</p>
+<h4 id="stringlast_indexs">string.last_index(s)</h4>
+<p>Returns the index of the last occurence of <code>s</code> in this string, or <code>-1</code>
+if <code>s</code> is not present.</p>
+<h4 id="stringreplace_allold-new">string.replace_all(old, new)</h4>
+<p>Returns a copy of this string with all occurrences of <code>old</code> replaced by <code>new</code>.</p>
+<h4 id="stringto_lower">string.to_lower()</h4>
+<p>Returns a copy of this string that is transformed to all lowercase.</p>
+<h4 id="stringto_upper">string.to_upper()</h4>
+<p>Returns a copy of this string that is transformed to all uppercase.</p>
+<h4 id="stringtrimcutset">string.trim(cutset)</h4>
+<p>Returns a copy of this string with all leading and trailing characters contained
+in <code>cutset</code> removed.</p>
+<h4 id="stringtrim_prefixprefix">string.trim_prefix(prefix)</h4>
+<p>Returns a copy of this string without the given prefix. This is a no-op if this
+string doesn't start with <code>prefix</code>.</p>
+<h4 id="stringtrim_space">string.trim_space()</h4>
+<p>Returns a copy of this string without the leading and trailing whitespace.</p>
+<h4 id="stringtrim_suffixsuffix">string.trim_suffix(suffix)</h4>
+<p>Returns a copy of this string without the given suffix. This is a no-op if this
+string doesn't end with <code>suffix</code>.</p>
+<h2 id="list">List</h2>
+<p>Lists in Tamarin behave very similarly to lists in Python. Methods and indexing
+on lists are the primary way to interact with these objects. A list can store
+objects of any types, including a mix of types in one list.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">l</span><span class="p">.</span><span class="nb">append</span><span class="p">(</span><span class="s">&quot;tail&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tail&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="container-operations_1">Container Operations</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">]</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">]</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">l</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="mi">3</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="w"> </span><span class="nx">in</span><span class="w"> </span><span class="nx">l</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="kc">true</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="s">&quot;d&quot;</span><span class="w"> </span><span class="nx">in</span><span class="w"> </span><span class="nx">l</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="kc">false</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="s">&quot;c&quot;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;d&quot;</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">l</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;d&quot;</span><span class="p">]</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">l</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="p">[</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;d&quot;</span><span class="p">]</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">l</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="related-built-ins_3">Related Built-ins</h3>
+<h4 id="listcontainer">list(container)</h4>
+<p>Returns a new list populated with items from the given container. If a list is
+provided, a shallow copy of the list is returned. It is also commonly used to
+convert a set to a list.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">}</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">}</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">list</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="methods_1">Methods</h3>
+<h4 id="listappendx">list.append(x)</h4>
+<p>Adds x to the end of the list.</p>
+<h4 id="listclear">list.clear()</h4>
+<p>Empties all items from the list.</p>
+<h4 id="listcopy">list.copy()</h4>
+<p>Returns a shallow copy of the list.</p>
+<h4 id="listcountx">list.count(x)</h4>
+<p>Returns a count of how many times x is found in the list.</p>
+<h4 id="listextendx">list.extend(x)</h4>
+<p>Adds all items contained in x to the end of the list.</p>
+<h4 id="listindexx">list.index(x)</h4>
+<p>Returns the first index of x in the list, or -1 if not found.</p>
+<h4 id="listinsertindex-x">list.insert(index, x)</h4>
+<p>Inserts x into the list at the specified index.</p>
+<h4 id="listpopindex">list.pop(index)</h4>
+<p>Removes the item at the given index from the list.</p>
+<h4 id="listremovex">list.remove(x)</h4>
+<p>Removes the first occurence of x in the list.</p>
+<h4 id="listreverse">list.reverse()</h4>
+<p>Reverses the list in place.</p>
+<h4 id="listsort">list.sort()</h4>
+<p>Sorts the list in place.</p>
+<h4 id="listmapfunc">list.map(func)</h4>
+<p>Returns a transformed list, in which the given function is applied to each list item.</p>
+<h4 id="listfilterfunc">list.filter(func)</h4>
+<p>Returns a transformed list, in which the given function returns true for items that should be added to the output list.</p>
+<h4 id="listeachfunc">list.each(func)</h4>
+<p>Calls the supplied function once with each item in the list.</p>
+<h2 id="map">Map</h2>
+<p>Maps associate keys with values and provide fast lookups by key. Tamarin
+maps use underlying Go maps of type <code>map[string]interface{}</code>. This means
+Tamarin maps always operate with string keys, which provides equivalence with JSON.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">{</span><span class="nx">one</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">two</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p">{</span><span class="s">&quot;one&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;three&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">m</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="p">{</span><span class="s">&quot;one&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;three&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="container-operations_2">Container Operations</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sean&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">}</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="p">{</span><span class="s">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sean&quot;</span><span class="p">}</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">m</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="mi">2</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="s">&quot;age&quot;</span><span class="w"> </span><span class="nx">in</span><span class="w"> </span><span class="nx">m</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="kc">true</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;age&quot;</span><span class="p">]</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="mi">27</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">[</span><span class="s">&quot;age&quot;</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">28</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">m</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="p">{</span><span class="s">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sean&quot;</span><span class="p">}</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">keys</span><span class="p">()</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="p">[</span><span class="s">&quot;age&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="related-built-ins_4">Related Built-ins</h3>
+<h4 id="deletemap-key">delete(map, key)</h4>
+<p>Deletes the item with the specified key from the map. This operation has no
+effect if the key is not present in the map.</p>
+<h4 id="mapcontainer">map(container)</h4>
+<p>Returns a new map with the contents of the given container. Generally, containers
+are transformed into the map by creating an iterator for the given container and
+the key and value for each iterator entry are added to the map. As a special
+case, if the container is a list then it is expected to be a nested list of
+key-value pairs, e.g. <code>[["key1", "val1"]]</code>. Any non-string keys that are
+encountered are automatically converted to their string representation.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">map</span><span class="p">({</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">})</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">map</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">{</span><span class="s">&quot;0&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">}</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="kd">map</span><span class="p">([[</span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;joe&quot;</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;age&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">]])</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="p">{</span><span class="s">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;joe&quot;</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="methods_2">Methods</h3>
+<h4 id="mapclear">map.clear()</h4>
+<p>Removes all items from the map.</p>
+<h4 id="mapcopy">map.copy()</h4>
+<p>Returns a shallow copy of the map, containing the same keys and values.</p>
+<h4 id="mapgetkey-defaultnil">map.get(key, default=nil)</h4>
+<p>Returns the value associated with the given key, if it exists in the map.
+If the key is not in the map, the given default value is returned.</p>
+<h4 id="mapitems">map.items()</h4>
+<p>Returns a list of [key, value] pairs containing the items from the map.</p>
+<h4 id="mapkeys">map.keys()</h4>
+<p>Returns a sorted list of keys contained in the map.</p>
+<h4 id="mappopkey-defaultnil">map.pop(key, default=nil)</h4>
+<p>Returns the value associated with the given key and then removes it from the
+map. If the key is not in the map, the given default value is returned instead.</p>
+<h4 id="mapsetdefaultkey-default">map.setdefault(key, default)</h4>
+<p>Sets the key to the given default value if the key is not already in the map.
+If the key already is in the map, do nothing. Returns the value associated with
+the key after the set action.</p>
+<h4 id="mapupdateother">map.update(other)</h4>
+<p>Updates this map with the key-value pairs contained in the provided map,
+overwriting any items with matching keys already in this map.</p>
+<h4 id="mapvalues">map.values()</h4>
+<p>Returns a sorted list of values contained in the map.</p>
+<h2 id="set">Set</h2>
+<p>Sets represent an unordered collection of unique objects. Only hashable objects
+can be added to sets, which includes bool, int, float, nil, and string. It is
+not possible to add a list or map to a set, since they are not hashable.</p>
+<h3 id="container-operations_3">Container Operations</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="nx">in</span><span class="w"> </span><span class="nx">s</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kc">true</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="nx">in</span><span class="w"> </span><span class="nx">s</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="kc">false</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="kc">true</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">s</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="kc">false</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nb">delete</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">s</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="related-built-ins_5">Related Built-ins</h3>
+<h4 id="deleteset-key">delete(set, key)</h4>
+<p>Deletes the given key from the set. This is a no-op if the key is not present in the set.</p>
+<h4 id="setcontainer">set(container)</h4>
+<p>Returns a new set that is populated with the contents of the given container.
+The loading behavior for each provided type is as follows:</p>
+<ul>
+<li>Given a list, the values within are added to the set.</li>
+<li>Given a string, the characters within are added to the set.</li>
+<li>Given a map, the keys within are added to the set.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">])</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">set</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">}</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="o">&gt;&gt;</span><span class="p">&gt;</span><span class="w"> </span><span class="nx">set</span><span class="p">({</span><span class="nx">one</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">two</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">})</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="p">{</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">}</span>
+</code></pre></div>
+<h3 id="methods_3">Methods</h3>
+<h4 id="setaddx">set.add(x)</h4>
+<p>Add <code>x</code> to the set. If <code>x</code> is not hashable, an error is generated.</p>
+<h4 id="setclear">set.clear()</h4>
+<p>Empties all items from the set.</p>
+<h4 id="setremovex">set.remove(x)</h4>
+<p>Remove <code>x</code> from the set. This is a no-op if <code>x</code> is not in the set.</p>
+<h4 id="setunionother">set.union(other)</h4>
+<p>Returns a new set which contains the union of all items from this set
+and the other set.</p>
+<h4 id="setintersectionother">set.intersection(other)</h4>
+<p>Returns a new set containing items that are present in both this set and the other set.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.annotate"], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      
+    
+  </body>
+</html>
